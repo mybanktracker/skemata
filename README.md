@@ -55,7 +55,7 @@ car = OpenStruct.new(
   next_model_up: OpenStruct.new(brand: 'Mercedes-Benz', model: 'E63 AMG')
 )
 
-car_json = SchemaOrg.draw :Vehicle, car do
+car_json = Skemata.draw :Vehicle, car do
   brand_name :brand
   model
   next_model_up :Vehicle, :next_model_up do 
@@ -107,7 +107,7 @@ end
 Specify attributes as Hash keys.
 
 ```ruby
-SchemaOrg.draw :Foo, { bar: 'baz' } do
+Skemata.draw :Foo, { bar: 'baz' } do
 	bar
 	bar_with_another_name :bar
 end
@@ -121,7 +121,7 @@ end
 Sometimes it is necessary to retrieve attributes from relational data (e.g. an `ActiveRecord` model) without serializing the whole object as a new child. Assuming a `Student` model with a `Parent` that has a `name` field. 
 
 ```ruby
-SchemaOrg.draw :Person, Student.last do
+Skemata.draw :Person, Student.last do
   parent_name nested(:parent, :name)
 end
 ```
