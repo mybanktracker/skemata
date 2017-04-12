@@ -2,6 +2,9 @@
 
 A lightweight schema.org object DSL written in Ruby. This library is currently under active development and is missing many features, including validation. See the [contributing](#contributing) section for more information. 
 
+[![Code Climate](https://codeclimate.com/github/mybanktracker/skemata.png)](https://codeclimate.com/github/mybanktracker/skemata) ![CircleCI](https://circleci.com/gh/mybanktracker/skemata.svg?style=shield&circle-token=11b5d953bf45ab8237fe2eb5091a2c320c358417)
+
+
 ## Getting Started
 Developed against MRI 2.4.0
 
