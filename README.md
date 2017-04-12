@@ -150,6 +150,6 @@ This library is being built incrementally with features that are of immediate ne
 - Pull request
 
 ## Credits
-Copyright (c) David Stancu, contributors, MBTMedia LLC 2017.
+Copyright (c) [David Stancu](https://davidstancu.me), contributors, MBTMedia LLC 2017.
 
 [MIT License](https://github.com/mybanktracker/skemata/blob/master/LICENSE.txt)
