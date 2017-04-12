@@ -118,7 +118,7 @@ end
 ```
 
 ### Distant attributes
-Sometimes it is necessary to retrieve attributes from relational data (e.g. an `ActiveRecord` model) without serializing the whole object as a new child.
+Sometimes it is necessary to retrieve attributes from relational data (e.g. an `ActiveRecord` model) without serializing the whole object as a new child. Assuming a `Student` model with a `Parent` that has a `name` field. 
 
 ```ruby
 SchemaOrg.draw :Person, Student.last do
@@ -128,6 +128,13 @@ end
 
 ```json
 {"@type":"Person","@context":"https://schema.org","parent_name":"Some Name"}
+```
+
+#### Applying transformations
+If this was not already apparent, since we effectively fold into one object for presentation, you can use any method that each successive object will respond to. Using the previous example, it would be valid to do this:
+
+```ruby
+nested(:parent, :name, :upcase)
 ```
 
 ## Contributing
