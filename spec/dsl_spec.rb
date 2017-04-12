@@ -1,7 +1,7 @@
 require 'json'
 require 'ostruct'
 
-describe Schemata::Node do
+describe Schemata::DSL do
   let(:cat) do 
     OpenStruct.new(
       name: 'Dr. Snuggles',
@@ -84,7 +84,7 @@ describe Schemata::Node do
           cat.best_friend = OpenStruct.new(
             name: 'Garfield',
             age: 8,
-            occupation: 'Lasagna expert, likes shitting in box'
+            occupation: 'Lasagna expert, likes playing with yarn'
           )
         end
 

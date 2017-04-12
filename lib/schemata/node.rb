@@ -1,58 +1,27 @@
 # frozen_string_literal: true
-
 module Schemata
   class Node
     ALLOWED_OPTS = %i[type root_object].freeze
-
-    class << self
-      #
-      # Draw a schema.org node. Creates a new DSL class for each child node.
-      # @param opts = {} [Hash] Options hash
-      #   root_object (required): Object you wish to serialize
-      #   type        (required): schema.org type
-      #   is_root     (optional): Is this the top level object
-      # @param &block [Block] DSL schema definition
-      #
-      # @return [String] schema.org JSON structure
-      def draw(opts = {}, &block)
-        raise(
-          ArgumentError, 'Options must include schema.org type,'\
-          ' and a root_object to serialize'
-        ) unless (opts.keys & ALLOWED_OPTS).count > 1
-
-        opts[:is_root] = true unless opts.key?(:is_root)
-
-        node = new(opts)
-        node.instance_eval(&block)
-        opts[:is_root] ? node.data.to_json : node.data
-      end
-    end
-
-    # Make a new type
-    class NodeMethodChain < Array; end
-
     #
     # Prepares internal data hash and assigns locals
-    # @param opts = {} [Hash] See self.draw for valid opts
+    # @param opts = {} [Hash] See Schemata::DSL.draw for valid
+    #                         opts
     #
-    # @return [DSL] A schema.org DSL class.
+    # @return [Node] A Node class.
     def initialize(opts = {})
       ALLOWED_OPTS.each { |o| instance_variable_set("@#{o}", opts[o]) }
       @data = { '@type' => type }
-      @data['@context'] = 'https://schema.org' if opts[:is_root]
+      @data['@context'] = 'https://schema.org' if opts.fetch(:is_root, true)
     end
 
     #
-    # Delegator to NodeMethodChain.new
-    # @param *args [varargs]
+    # Decorate the node with a new property (as delegated by method_missing)
     #
-    # @return [NodeMethodChain]
-    def nested(*args)
-      NodeMethodChain.new(args)
-    end
-
-    # TODO: special token so we can define respond_to_missing?
-    def method_missing(name, *args, &block)
+    # @param name [Symbol] Key name
+    # @param *args [Array] Varargs for attributes describing key
+    # @param &block [Proc] Body for a child node, if present
+    #
+    def decorate(name, *args, &block)
       # Draw another node
       return route_block(name, *args, &block) if block.present?
       # Or populate the hash
@@ -76,7 +45,7 @@ module Schemata
     end
 
     #
-    # Driver for #fetch_property. If passed an NodeMethodChain (Array), fold
+    # Driver for #fetch_property. If passed a NodeMethodChain (Array), fold
     # the chain of methods until the final value. If passed a Symbol,
     # just extract that single method.
     #
@@ -85,7 +54,7 @@ module Schemata
     # @return [Object] Serializable value
     def extract(property)
       case property
-      when NodeMethodChain
+      when DSL::NodeMethodChain
         property.inject(root_object, &method(:fetch_property))
       when Symbol
         fetch_property(root_object, property)
@@ -127,7 +96,7 @@ module Schemata
     def internal_draw(token, type, property, &block)
       property = root_object.send(property) if property.is_a?(Symbol)
       data.merge!(
-        token.to_s => self.class.draw(
+        token.to_s => DSL.draw(
           { type: type, root_object: property, is_root: false },
           &block
         )
