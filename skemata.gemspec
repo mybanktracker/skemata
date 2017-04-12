@@ -3,18 +3,18 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'schemata/version'
+require 'skemata/version'
 
 # rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |gem|
-  gem.name          = 'schemata'
-  gem.version       = Schemata::VERSION
+  gem.name          = 'skemata'
+  gem.version       = Skemata::VERSION
   gem.summary       = 'A DSL designed to draft JSON-LD schema.org objects.'
   gem.description   = gem.summary
   gem.license       = 'MIT'
   gem.authors       = ['David Stancu']
   gem.email         = 'dstancu@nyu.edu'
-  gem.homepage      = 'https://rubygems.org/gems/schemata'
+  gem.homepage      = 'https://rubygems.org/gems/skemata'
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
 

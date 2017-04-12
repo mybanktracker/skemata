@@ -1,4 +1,4 @@
 require 'rspec'
-require 'schemata/version'
+require 'skemata/version'
 
-include Schemata
+include Skemata

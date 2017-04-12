@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'schemata/version'
+require 'skemata/version'
 require 'active_support'
 require 'active_support/core_ext'
 
-module Schemata
+module Skemata
   extend ActiveSupport::Autoload
 
   autoload :DSL

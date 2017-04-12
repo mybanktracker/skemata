@@ -1,10 +1,11 @@
 # frozen_string_literal: true
-module Schemata
+
+module Skemata
   class Node
     ALLOWED_OPTS = %i[type root_object].freeze
     #
     # Prepares internal data hash and assigns locals
-    # @param opts = {} [Hash] See Schemata::DSL.draw for valid
+    # @param opts = {} [Hash] See Skemata::DSL.draw for valid
     #                         opts
     #
     # @return [Node] A Node class.

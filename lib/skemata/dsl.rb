@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-module Schemata
+
+module Skemata
   class DSL
     # Make a new type
     class NodeMethodChain < Array; end
@@ -28,7 +29,7 @@ module Schemata
     # @return [DSL] A DSL class.
     def initialize(node)
       raise(
-        ArgumentError, 'DSL must be provided with a Schemata::Node type!'
+        ArgumentError, 'DSL must be provided with a Skemata::Node type!'
       ) unless node.is_a?(Node)
 
       @node = node

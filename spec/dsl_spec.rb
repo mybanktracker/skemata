@@ -1,7 +1,7 @@
 require 'json'
 require 'ostruct'
 
-describe Schemata::DSL do
+describe Skemata::DSL do
   let(:cat) do 
     OpenStruct.new(
       name: 'Dr. Snuggles',
