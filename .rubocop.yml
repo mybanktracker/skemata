@@ -1,0 +1,21 @@
+AllCops:
+  DisplayCopNames: true
+  Exclude: 
+    - Gemfile
+    - Guardfile
+    - Rakefile
+    - ./vendor/**/*
+    - ./spec/**/*
+    - ./kagu/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Lint/Debugger:
+  Enabled: false
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
