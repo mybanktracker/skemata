@@ -2,7 +2,7 @@
 
 A lightweight schema.org object DSL written in Ruby. This library is currently under active development and is missing many features, including validation. See the [contributing](#contributing) section for more information. 
 
-[![Code Climate](https://codeclimate.com/github/mybanktracker/skemata.png)](https://codeclimate.com/github/mybanktracker/skemata) ![CircleCI](https://circleci.com/gh/mybanktracker/skemata.svg?style=shield&circle-token=11b5d953bf45ab8237fe2eb5091a2c320c358417) [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://www.rubydoc.info/github/mybanktracker/skemata/master)
+[![Code Climate](https://codeclimate.com/github/mybanktracker/skemata.png)](https://codeclimate.com/github/mybanktracker/skemata) ![CircleCI](https://circleci.com/gh/mybanktracker/skemata.svg?style=shield&circle-token=11b5d953bf45ab8237fe2eb5091a2c320c358417) [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://www.rubydoc.info/github/mybanktracker/skemata/master) [![Gem Version](https://badge.fury.io/rb/skemata.svg)](https://badge.fury.io/rb/skemata)
 
 
 
