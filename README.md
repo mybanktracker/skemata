@@ -38,7 +38,7 @@ end
 `schema_json` looks like this: 
 ```json
 {
-  "@type": "Product",
+  "@type": "Thing",
   "@context": "https://schema.org",
   "name": "Fido",
   "description": "Cute and adorable!",
