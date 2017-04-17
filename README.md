@@ -112,8 +112,8 @@ Specify attributes as Hash keys.
 
 ```ruby
 Skemata.draw :Foo, { bar: 'baz' } do
-	bar
-	bar_with_another_name :bar
+  bar
+  bar_with_another_name :bar
 end
 ```
 
