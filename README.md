@@ -30,7 +30,7 @@ require 'skemata'
 schema_json = Skemata.draw :Thing, Dog.last do
   name
   description
-  # You can also provide any kind of Ruby PORO for attribute values as long as they are serializable!
+  # You can also provide any kind of Ruby PORO 
   some_custom_attribute_not_in_the_object 'woop woop'
 end
 ```
