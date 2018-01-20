@@ -43,6 +43,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec', '~> 3.0'
   gem.add_development_dependency 'rubocop'
   gem.add_development_dependency 'rubygems-tasks', '~> 0.2'
-  gem.add_development_dependency 'yard', '~> 0.8'
+  gem.add_development_dependency 'yard', '~> 0.9'
 end
 # rubocop:enable Metrics/BlockLength
